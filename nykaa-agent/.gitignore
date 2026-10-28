@@ -1,0 +1,7 @@
+chroma_db/
+checkpoints.sqlite
+__pycache__/
+*.pyc
+logs/
+data/conversations.json
+artifacts/exec_log.jsonl

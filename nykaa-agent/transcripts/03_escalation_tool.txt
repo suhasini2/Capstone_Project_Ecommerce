@@ -1,0 +1,7 @@
+formula: escalation_score = 0.6*delayed_shipment + 0.4*min(days_since_created/30, 1)
+score range in dataset: 0.0 .. 0.9467
+threshold (80th percentile of dataset scores) = 0.39
+orders recommended for escalation: 7 of 48
+NYK-1003 -> {'record_id': 'NYK-1003', 'status': 'Placed', 'order_value_inr': 2404, 'escalation_score': 0.2133, 'escalation_threshold': 0.39, 'recommend_escalation': False}
+NYK-1048 -> {'record_id': 'NYK-1048', 'status': 'Delivered', 'order_value_inr': 4927, 'escalation_score': 0.9467, 'escalation_threshold': 0.39, 'recommend_escalation': True}
+NYK-9999 -> {'record_id': 'NYK-9999', 'error': "No order found with ID 'NYK-9999'."}

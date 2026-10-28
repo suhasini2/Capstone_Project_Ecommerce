@@ -1,0 +1,144 @@
+{
+  "rows": [
+    {
+      "query": "What is the return window for beauty products?",
+      "expected_doc": "KB-01",
+      "top_doc": "KB-01",
+      "refused": false,
+      "context_relevance": 0.5,
+      "groundedness": 1.0,
+      "answer_relevance": 0.5
+    },
+    {
+      "query": "How long does a COD refund take?",
+      "expected_doc": "KB-02",
+      "top_doc": "KB-02",
+      "refused": false,
+      "context_relevance": 0.56,
+      "groundedness": 1.0,
+      "answer_relevance": 0.56
+    },
+    {
+      "query": "What are the delivery timelines for non-metro cities?",
+      "expected_doc": "KB-03",
+      "top_doc": "KB-03",
+      "refused": false,
+      "context_relevance": 0.72,
+      "groundedness": 1.0,
+      "answer_relevance": 0.72
+    },
+    {
+      "query": "Which items qualify for reverse pickup?",
+      "expected_doc": "KB-04",
+      "top_doc": "KB-04",
+      "refused": false,
+      "context_relevance": 0.68,
+      "groundedness": 1.0,
+      "answer_relevance": 0.68
+    },
+    {
+      "query": "What warranty do electronics have?",
+      "expected_doc": "KB-05",
+      "top_doc": "KB-05",
+      "refused": false,
+      "context_relevance": 0.64,
+      "groundedness": 1.0,
+      "answer_relevance": 0.64
+    },
+    {
+      "query": "Can I cancel my order after it is shipped?",
+      "expected_doc": "KB-06",
+      "top_doc": "KB-06",
+      "refused": false,
+      "context_relevance": 0.79,
+      "groundedness": 1.0,
+      "answer_relevance": 0.79
+    },
+    {
+      "query": "How do I redeem my reward points?",
+      "expected_doc": "KB-07",
+      "top_doc": "KB-07",
+      "refused": false,
+      "context_relevance": 0.69,
+      "groundedness": 1.0,
+      "answer_relevance": 0.69
+    },
+    {
+      "query": "What happens if money is deducted but my payment failed?",
+      "expected_doc": "KB-08",
+      "top_doc": "KB-08",
+      "refused": false,
+      "context_relevance": 0.62,
+      "groundedness": 1.0,
+      "answer_relevance": 0.62
+    },
+    {
+      "query": "How does a size exchange work for shoes?",
+      "expected_doc": "KB-09",
+      "top_doc": "KB-09",
+      "refused": false,
+      "context_relevance": 0.54,
+      "groundedness": 1.0,
+      "answer_relevance": 0.54
+    },
+    {
+      "query": "How do I claim a damaged item?",
+      "expected_doc": "KB-10",
+      "top_doc": "KB-10",
+      "refused": false,
+      "context_relevance": 0.56,
+      "groundedness": 1.0,
+      "answer_relevance": 0.56
+    },
+    {
+      "query": "Can I ship perfume internationally?",
+      "expected_doc": "KB-11",
+      "top_doc": "KB-11",
+      "refused": false,
+      "context_relevance": 0.69,
+      "groundedness": 1.0,
+      "answer_relevance": 0.69
+    },
+    {
+      "query": "How are unresolved issues escalated to a manager?",
+      "expected_doc": "KB-12",
+      "top_doc": "KB-12",
+      "refused": false,
+      "context_relevance": 0.61,
+      "groundedness": 1.0,
+      "answer_relevance": 0.61
+    },
+    {
+      "query": "What is the capital of France?",
+      "expected_doc": null,
+      "top_doc": "KB-03",
+      "refused": true,
+      "context_relevance": 0.13,
+      "groundedness": 1.0,
+      "answer_relevance": 1.0
+    },
+    {
+      "query": "Write me a poem about the monsoon.",
+      "expected_doc": null,
+      "top_doc": "KB-03",
+      "refused": true,
+      "context_relevance": 0.3,
+      "groundedness": 1.0,
+      "answer_relevance": 1.0
+    },
+    {
+      "query": "Can I return an opened lipstick?",
+      "expected_doc": "KB-04",
+      "top_doc": "KB-04",
+      "refused": false,
+      "context_relevance": 0.66,
+      "groundedness": 1.0,
+      "answer_relevance": 0.66
+    }
+  ],
+  "averages": {
+    "context_relevance": 0.579,
+    "groundedness": 1.0,
+    "answer_relevance": 0.684
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "strategy": "sentence",
+  "thresholds": {
+    "fixed": 0.364,
+    "sentence": 0.378
+  },
+  "precision_recall": {
+    "fixed": {
+      "P": 0.5555555555555556,
+      "R": 1.0
+    },
+    "sentence": {
+      "P": 0.75,
+      "R": 1.0
+    }
+  }
+}

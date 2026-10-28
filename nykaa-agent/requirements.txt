@@ -1,0 +1,15 @@
+langgraph>=0.4
+langgraph-checkpoint-sqlite
+langchain-core
+chromadb
+sentence-transformers
+fastapi
+uvicorn
+httpx
+pydantic>=2
+jsonschema
+fastmcp
+numpy
+pytest
+# optional, only for MOCK_LLM=0:
+# groq

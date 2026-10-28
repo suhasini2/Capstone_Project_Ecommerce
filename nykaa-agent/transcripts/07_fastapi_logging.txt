@@ -1,0 +1,33 @@
+POST /ask -> 200 X-Trace-Id: 09e1546339e24b10ba8d05a9ccef7950
+{
+  "trace_id": "09e1546339e24b10ba8d05a9ccef7950",
+  "session_id": "api-1",
+  "query": "My phone is [PHONE], card ending [CARD_LAST4]. Status of order NYK-1010?",
+  "intent": "order_status",
+  "answer": "Order NYK-1010 is Returned (value INR 5428). Escalation score 0.08 vs threshold 0.39: no escalation needed.",
+  "sources": [
+    "orders_db:NYK-1010"
+  ],
+  "grounded": true,
+  "refused": false,
+  "guardrails": [
+    "pii_masked:card_last4",
+    "pii_masked:phone"
+  ],
+  "escalation": {
+    "score": 0.08,
+    "threshold": 0.39,
+    "recommended": false
+  },
+  "top_score": null
+}
+
+POST /ask -> 200 Bank refunds arrive 3 to 5 business days after the returned item passes quality checks.
+
+POST /add-document -> 200 {'trace_id': '0d4488f2f40b4161a7d7b44c822c2685', 'doc_id': 'KB-13', 'chunks_added': {'fixed': 1, 'sentence': 2}}
+POST /ask (new doc) -> 200 Gift wrapping costs INR 49 per item and is available on all orders above INR 299.
+POST /add-document duplicate -> 409
+
+5 JSONL log entries; first entry:
+{"ts": "2026-10-27T08:43:25", "trace_id": "09e1546339e24b10ba8d05a9ccef7950", "endpoint": "/ask", "query_masked": "My phone is [PHONE], card ending [CARD_LAST4]. Status of order NYK-1010?", "session_id": "api-1", "status": 200, "intent": "order_status", "refused": false, "guardrails": ["pii_masked:card_last4", "pii_masked:phone"], "latency_ms": 52.0}
+[proof] raw phone number and card digits do NOT appear anywhere in logs/requests.jsonl

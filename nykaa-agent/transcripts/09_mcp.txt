@@ -1,0 +1,14 @@
+INFO:     127.0.0.1:53295 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53295 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53295 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53295 - "POST /mcp HTTP/1.1" 200 OK
+tools exposed by server: ['check_order_status']
+
+--- check_order_status('NYK-1003') : standardized MCP response ---
+CallToolResult(content=[TextContent(type='text', text='{"record_id":"NYK-1003","status":"Placed","order_value_inr":2404,"escalation_score":0.2133,"escalation_threshold":0.39,"recommend_escalation":false}', annotations=None, meta=None)], structured_content={'record_id': 'NYK-1003', 'status': 'Placed', 'order_value_inr': 2404, 'escalation_score': 0.2133, 'escalation_threshold': 0.39, 'recommend_escalation': False}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'nykaa-orders', 'version': '4.0.3'}}, data={'record_id': 'NYK-1003', 'status': 'Placed', 'order_value_inr': 2404, 'escalation_score': 0.2133, 'escalation_threshold': 0.39, 'recommend_escalation': False}, is_error=False)
+parsed data: {'record_id': 'NYK-1003', 'status': 'Placed', 'order_value_inr': 2404, 'escalation_score': 0.2133, 'escalation_threshold': 0.39, 'recommend_escalation': False}
+
+--- check_order_status('NYK-1048') : standardized MCP response ---
+CallToolResult(content=[TextContent(type='text', text='{"record_id":"NYK-1048","status":"Delivered","order_value_inr":4927,"escalation_score":0.9467,"escalation_threshold":0.39,"recommend_escalation":true}', annotations=None, meta=None)], structured_content={'record_id': 'NYK-1048', 'status': 'Delivered', 'order_value_inr': 4927, 'escalation_score': 0.9467, 'escalation_threshold': 0.39, 'recommend_escalation': True}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'nykaa-orders', 'version': '4.0.3'}}, data={'record_id': 'NYK-1048', 'status': 'Delivered', 'order_value_inr': 4927, 'escalation_score': 0.9467, 'escalation_threshold': 0.39, 'recommend_escalation': True}, is_error=False)
+parsed data: {'record_id': 'NYK-1048', 'status': 'Delivered', 'order_value_inr': 4927, 'escalation_score': 0.9467, 'escalation_threshold': 0.39, 'recommend_escalation': True}
+[demo] MCP server up at http://127.0.0.1:8000/mcp (pid 4600); launching separate client process

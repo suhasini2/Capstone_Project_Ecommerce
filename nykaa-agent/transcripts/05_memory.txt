@@ -1,0 +1,43 @@
+=== Task 8: persisted memory ===
+--- multi-turn conversation conv-A ---
+
+[conv-A] USER : Check the status of order NYK-1003
+  masked query : Check the status of order NYK-1003
+  route/nodes  : order_status  via ['memory_load', 'input_guard', 'router', 'order_node', 'finalize']
+  ANSWER       : Order NYK-1003 is Placed (value INR 2404). Escalation score 0.21 vs threshold 0.39: no escalation needed.
+  sources=['orders_db:NYK-1003'] refused=False guardrails=[] escalation={'score': 0.2133, 'threshold': 0.39, 'recommended': False}
+  schema       : VALID
+
+[conv-A] USER : Should it be escalated?
+  masked query : Should it be escalated?
+  route/nodes  : order_status  via ['memory_load', 'input_guard', 'router', 'order_node', 'finalize']
+  ANSWER       : Order NYK-1003 is Placed (value INR 2404). Escalation score 0.21 vs threshold 0.39: no escalation needed.
+  sources=['orders_db:NYK-1003'] refused=False guardrails=[] escalation={'score': 0.2133, 'threshold': 0.39, 'recommended': False}
+  schema       : VALID
+
+--- separate FRESH conversation conv-B (state must be absent) ---
+
+[conv-B] USER : Should it be escalated?
+  masked query : Should it be escalated?
+  route/nodes  : order_status  via ['memory_load', 'input_guard', 'router', 'order_node', 'finalize']
+  ANSWER       : Which order do you mean? Please share your order ID (for example NYK-1003).
+  sources=[] refused=False guardrails=[] escalation=None
+  schema       : VALID
+
+memory file conversations.json:
+{
+  "turns": [
+    {
+      "user": "Check the status of order NYK-1003",
+      "agent": "Order NYK-1003 is Placed (value INR 2404). Escalation score 0.21 vs threshold 0.39: no escalation needed.",
+      "intent": "order_status"
+    },
+    {
+      "user": "Should it be escalated?",
+      "agent": "Order NYK-1003 is Placed (value INR 2404). Escalation score 0.21 vs threshold 0.39: no escalation needed.",
+      "intent": "order_status"
+    }
+  ],
+  "last_record_id": "NYK-1003"
+}
+conv-B last_record_id = None

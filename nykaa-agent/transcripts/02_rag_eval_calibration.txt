@@ -1,0 +1,79 @@
+[index] fixed   : 25 chunks from 12 docs
+[index] sentence: 37 chunks from 12 docs
+
+sample retrieval (sentence collection): [('KB-01', 0.593), ('KB-04', 0.485), ('KB-01', 0.474)]
+
+=== Collection 'fixed': Precision@3 / Recall@3 (chunks -> parent docs -> dedup) ===
+Q: How many days do I have to return a lipstick I bought?
+   retrieved docs=['KB-01', 'KB-02', 'KB-04'] relevant=['KB-01']
+   P@3 = 1/3 = 0.33   R@3 = 1/1 = 1.00
+Q: When will my COD refund reach my bank account?
+   retrieved docs=['KB-02'] relevant=['KB-02']
+   P@3 = 1/1 = 1.00   R@3 = 1/1 = 1.00
+Q: How long does standard delivery take to a metro city?
+   retrieved docs=['KB-03', 'KB-11'] relevant=['KB-03']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+Q: Is a product eligible for reverse pickup if I opened it?
+   retrieved docs=['KB-04', 'KB-01'] relevant=['KB-04']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+Q: What warranty comes with a laptop?
+   retrieved docs=['KB-05', 'KB-01'] relevant=['KB-05']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+Q: My parcel arrived broken, how do I claim?
+   retrieved docs=['KB-10', 'KB-11'] relevant=['KB-10']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+MEAN  P@3=0.556  R@3=1.000
+
+=== Collection 'sentence': Precision@3 / Recall@3 (chunks -> parent docs -> dedup) ===
+Q: How many days do I have to return a lipstick I bought?
+   retrieved docs=['KB-01', 'KB-04'] relevant=['KB-01']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+Q: When will my COD refund reach my bank account?
+   retrieved docs=['KB-02'] relevant=['KB-02']
+   P@3 = 1/1 = 1.00   R@3 = 1/1 = 1.00
+Q: How long does standard delivery take to a metro city?
+   retrieved docs=['KB-03', 'KB-11'] relevant=['KB-03']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+Q: Is a product eligible for reverse pickup if I opened it?
+   retrieved docs=['KB-04'] relevant=['KB-04']
+   P@3 = 1/1 = 1.00   R@3 = 1/1 = 1.00
+Q: What warranty comes with a laptop?
+   retrieved docs=['KB-05'] relevant=['KB-05']
+   P@3 = 1/1 = 1.00   R@3 = 1/1 = 1.00
+Q: My parcel arrived broken, how do I claim?
+   retrieved docs=['KB-10', 'KB-08'] relevant=['KB-10']
+   P@3 = 1/2 = 0.50   R@3 = 1/1 = 1.00
+MEAN  P@3=0.750  R@3=1.000
+
+Recommendation: deploy the 'sentence' collection - mean P@3 0.750 / R@3 1.000 versus 0.556 / 1.000 for 'fixed'.
+
+[calibration:fixed] in-scope top-1 cosine  = [0.518, 0.686, 0.746, 0.617]
+[calibration:fixed] out-of-scope top-1     = [0.129, 0.024, 0.21]
+[calibration:fixed] chosen threshold = 0.364  (clusters separate cleanly -> midpoint of (lowest in-scope, highest out-of-scope))
+
+[calibration:sentence] in-scope top-1 cosine  = [0.523, 0.8, 0.76, 0.589]
+[calibration:sentence] out-of-scope top-1     = [0.096, 0.073, 0.234]
+[calibration:sentence] chosen threshold = 0.378  (clusters separate cleanly -> midpoint of (lowest in-scope, highest out-of-scope))
+
+=== Grounded generation (sentence collection, threshold 0.378) ===
+Q: How many days do I have to return a lipstick I bought?
+   top-1 sim=0.593 fallback=False
+   A: Beauty and personal-care items can be returned within 5 days of delivery if the seal is intact.
+Q: When will my COD refund reach my bank account?
+   top-1 sim=0.662 fallback=False
+   A: You must add valid bank details to your profile before the refund can start.
+Q: How long does standard delivery take to a metro city?
+   top-1 sim=0.903 fallback=False
+   A: Standard delivery takes 3 to 5 business days to metro cities and 5 to 7 business days to other locations.
+Q: Is a product eligible for reverse pickup if I opened it?
+   top-1 sim=0.726 fallback=False
+   A: Reverse pickup is free for items returned within their category's return window.
+Q: What warranty comes with a laptop?
+   top-1 sim=0.500 fallback=False
+   A: Electronics and styling tools such as hair dryers and straighteners carry a 1-year brand warranty through authorised service centres.
+Q: My parcel arrived broken, how do I claim?
+   top-1 sim=0.561 fallback=False
+   A: Report damaged or defective items within 48 hours of delivery through the Help section of the app.
+Q (out of scope): What is the capital of Australia?
+   top-1 sim=0.121 fallback=True
+   A: I don't know based on our policy documents. I can connect you with a human support agent.

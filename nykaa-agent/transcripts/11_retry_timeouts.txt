@@ -1,0 +1,8 @@
+retry policy: max_attempts=4, initial_interval=0.2s, backoff_factor=2.0, max_interval=1.0s, jitter=True
+
+(a) rag_node failed twice (simulated), succeeded on attempt #3 after 1.26s -> answer: Bank refunds arrive 3 to 5 business days after the returned item passe...
+
+(b) per-node timeout fired cleanly after 0.51s (not a hang): NodeTimeoutError: node 'rag_node' exceeded its 0.5s timeout
+
+(c) global timeout fired after 0.69s: GlobalTimeoutError: graph run exceeded the 0.7s global timeout
+    abandoned run stopped at a node boundary; rag_node calls = 0 (never reached)

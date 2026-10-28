@@ -1,0 +1,12 @@
+[phase 1] thread=demo-thread-1  query='How long does a COD refund take?'
+[phase 1] nodes completed so far : ['memory_load', 'input_guard', 'router']
+[phase 1] next node(s) pending   : ('rag_node',)   <- run stopped BEFORE rag_node
+[phase 1] node executions        : {'memory_load': 1, 'input_guard': 1, 'router': 1}
+
+--- simulated crash: connection closed, graph + agent objects destroyed ---
+
+[phase 2] loaded from checkpoint : node_log=['memory_load', 'input_guard', 'router'] next=('rag_node',)
+[phase 2] run completed. full node_log: ['memory_load', 'input_guard', 'router', 'rag_node', 'output_guard', 'finalize']
+[phase 2] answer: Bank refunds arrive 3 to 5 business days after the returned item passes quality checks.
+[phase 2] node executions        : {'memory_load': 1, 'input_guard': 1, 'router': 1, 'rag_node': 1, 'output_guard': 1, 'finalize': 1}
+[proof] memory_load, input_guard and router each executed exactly once -> restored from checkpoint, NOT re-run.

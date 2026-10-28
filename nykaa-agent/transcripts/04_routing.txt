@@ -1,0 +1,15 @@
+=== Task 7: conditional edge routes to BOTH tools ===
+
+[route-1] USER : How long does standard delivery take to a metro city?
+  masked query : How long does standard delivery take to a metro city?
+  route/nodes  : policy  via ['memory_load', 'input_guard', 'router', 'rag_node', 'output_guard', 'finalize']
+  ANSWER       : Standard delivery takes 3 to 5 business days to metro cities and 5 to 7 business days to other locations.
+  sources=['KB-03', 'KB-11'] refused=False guardrails=[] escalation=None
+  schema       : VALID
+
+[route-1] USER : What is the status of order NYK-1010?
+  masked query : What is the status of order NYK-1010?
+  route/nodes  : order_status  via ['memory_load', 'input_guard', 'router', 'order_node', 'finalize']
+  ANSWER       : Order NYK-1010 is Returned (value INR 5428). Escalation score 0.08 vs threshold 0.39: no escalation needed.
+  sources=['orders_db:NYK-1010'] refused=False guardrails=[] escalation={'score': 0.08, 'threshold': 0.39, 'recommended': False}
+  schema       : VALID
